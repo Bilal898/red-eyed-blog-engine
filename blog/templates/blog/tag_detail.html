@@ -1,14 +1,15 @@
 {% extends 'blog/base_blog.html' %}
 
-
 {% block title %}
-Index page {{ block.super }}
+    "{{ tag.title }}" posts {{ block.super }}
 {% endblock title %}
 
 {% block content %}
+    <h1 class="mt-5 mb-5">
+    Posts with "{{ tag.title }}" tag
+    </h1>
 
-    {% for post in posts %}
+    {% for post in tag.posts.all %}
         {% include 'blog/includes/post_card_template.html' %}
-
     {% endfor %}
 {% endblock content %}
